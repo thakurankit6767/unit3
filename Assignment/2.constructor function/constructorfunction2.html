@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      form > div {
+        margin: 10px;
+      }
+      td {
+        border: 1px solid red;
+        min-height: 100px;
+        padding: 10px;
+      }
+      form > div > input[type="submit"] {
+        background-color: teal;
+        color: white;
+      }
+      #task_name{
+          width: 260px;
+      }
+    </style>
+  </head>
+  <body>
+    <form>
+      <div>
+        <label>Name</label>
+        <input type="text" id="task_name" />
+      </div>
+      <div>
+        <input type="submit" value="submit" />
+        <input id="count" style="width: 22px; margin-left: 100px" />
+      </div>
+    </form>
+    <table>
+      <tr>
+        <td>Name</td>
+        <td>Date</td>
+        <td>Status</td>
+        <td>Complete</td>
+        <td>Remove</td>
+      </tr>
+    </table>
+  </body>
+</html>
+<script>
+  var fm = document.querySelector("form");
+  fm.addEventListener("submit", create);
+  var tb = document.querySelector("table");
+
+  function task(input) {
+    this.name = input;
+    this.date = new Date();
+    this.status = "false";
+  }
+
+ 
+
+  function create(e) {
+    count++;
+    e.preventDefault();
+    var task_name = document.getElementById("task_name").value;
+    var x = new task(task_name);
+    createRow(x);
+    
+    document.getElementById("task_name").value = "";
+  }
+
+  function createRow(x) {
+    var row = document.createElement("tr");
+    var td1 = document.createElement("td");
+    td1.textContent = x.name;
+    var td2 = document.createElement("td");
+    td2.textContent = x.date;
+    var td3 = document.createElement("td");
+    td3.textContent = x.status;
+    td3.addEventListener("click", toggle);
+    var td4 = document.createElement("td");
+    td4.textContent = "Mark";
+    td4.addEventListener = ("click", markcomplete);
+    var td5 = document.createElement("td");
+    td5.textContent = "Delete";
+    td5.addEventListener = ("click", markdelete);
+    row.append(td1, td2, td3, td4, td5);
+
+    tb.appendChild(row);
+  }
+
+  function markcomplete(e) {
+    e.target.textContent = "Done";
+    e.target.removeEventListener("click", markcomplete);
+    e.target.parentNode.style.backgroundColor = "green";
+    e.target.parentNode.style.textDecoration = "line-through";
+  }
+
+  function markdelete(e) {
+    count--;
+    document.getElementById("count").value = count;
+    e.target.parentNode.remove();
+  }
+
+  function toggle(e) {
+    if (e.target.textContent == "false") {
+      e.target.textContent = "true";
+    } else {
+      e.target.textContent = "false";
+    }
+  }
+</script>

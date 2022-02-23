@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       *{
+            font-size: 30px;
+        }
+        #container{
+            display: flex;
+            flex-direction: column;
+            border: 1 px solid black;
+        }
+        #container>div{
+            border: 2px solid red;
+            width: 75%;
+            padding: 2%;
+            background-color: blue;
+            color: white;
+        }
+        #container>div>p{
+            font-size: 100px;
+        }
+    </style>
+</head>
+<body>
+    <a href="search.html"> <h2>popular apple</h2></a>
+    <div id="container"></div>
+</html>
+<script>
+    let url="https://newsapi.org/v2/top-headlines?country=us&apiKey=7da057088ad0488880e18b7a53c7dc3e";
+    let products_div=document.getElementById("container");
+
+
+    // fetch(url)
+    // .then(function(res){
+    //    return res.json()
+    // })
+
+    // .then(function(res){
+    //   console.log("res:",res)
+    // })
+      
+      
+    // .catch(function(err){
+    //     console.log("err:",err)
+    // })
+
+    async function getnews(){
+
+       try{
+        let res=await fetch(url)
+        let response=await res.json()
+       
+        appendProducts(response);
+        console.log("response:",response)
+
+        }catch(err){
+            console.log("err:",err)
+        }
+     
+        
+    }
+
+    getnews();
+
+    function appendProducts(arr){
+
+        arr.forEach(function(product){
+
+            data.articles.forEach(function(apple){
+            let div=document.createElement("div")
+            let title=document.createElement("h2")
+            title=apple.title;
+            let author=document.createElement("p")
+            author=apple.author;
+            //console.log(title)
+            console.log(author)
+            div.append(title,author);
+            parent.append(div)
+        });
+
+    }
+</script>

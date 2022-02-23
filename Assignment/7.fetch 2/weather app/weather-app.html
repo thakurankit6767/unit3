@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WeatherApp</title>
+    <link href="weather_app.css" rel="stylesheet"/>
+    <script type="text/javascript"
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC5bwreCZGKc3hKUdkfd_3TEfmSoN9OfNY">
+        </script>
+</head>
+
+<body>
+    <div id="header">
+        <div><h1>weather app</h1></div>
+        <div id="weathersearchdiv">
+                <input type="text" id="city" placeholder="Enter city name" />
+                <button id="weatherbutton" onclick="GetWeather()">Show Weather</button>
+        </div>
+    </div>
+    <div id="container">
+        <div id="map_div">
+            <div id="map"></div>
+        </div>
+        <div id="todaysWeather">
+            
+            <div class="rightDiv">
+                <div id="div1"></div>
+                <div id="div2">
+                    <div id="data_div"></div>
+                </div>
+        </div>
+    </div>
+    <div id="finalDiv">
+        <h3 style="text-align: center;">Weather data for 7 days</h1><br>
+        <div id="weekData">
+        
+        </div>
+    </div>
+    
+</body>
+
+</html>
+
+<script src="weather_app.js">
+    
+</script>

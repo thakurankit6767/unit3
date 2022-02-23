@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+
+<script>
+    let arr=[1,2,3]
+    let arr2=new Array(1,2,3);
+    console.log("arr2:",arr2)
+
+
+    let masai_arr=new MyArray(1,2,3)
+    console.log("'masai_arr:",masai_arr)
+
+    function MyArray(){
+        this.length=arguments.length;
+
+  Object.defineProperty(this,"length",{
+        writable:true,
+        emurable:false,
+    });
+
+        for(let i=0;i<this.length;i++){
+            this[i]=arguments[i];
+        }
+    }
+
+    MyArray.prototype.asde=function(el){
+        this[this.length]=el;
+        this.length++;
+    };
+
+    let masai_arr=new MyArray(1,2,3);
+        console.log("masai_arr",Object.values(masai_arr));
+    
+    MyArray.prototype.asde=function(){
+
+    }
+</script>

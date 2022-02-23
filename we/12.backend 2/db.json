@@ -1,0 +1,19 @@
+{
+
+
+    "products":{
+
+
+        "id":1,
+        "product":"kitkat"
+    }
+}
+
+{
+    "products": [
+        {
+            "id": 1,
+            "product": "kitkat"
+        }
+    ]
+}

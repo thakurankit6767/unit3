@@ -1,0 +1,50 @@
+form > input {
+    margin-bottom: 20px;
+    margin-top: 20px;
+    width: 200px;
+  }
+  
+  form > select {
+    width: 200px;
+  }
+  
+  form > input[type="submit"] {
+    background-color: teal;
+    color: white;
+    border: 0;
+    padding: 10px 20px;
+    width: 200px;
+  }
+  
+  table,
+  td,
+  th {
+    border: 1px solid #ddd;
+    text-align: left;
+  }
+  
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  th,
+  td {
+    padding: 15px;
+  }
+  
+  #filter {
+    margin-bottom: 20px;
+  }
+  
+  #container {
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  @media only screen and (min-width: 0px) and (max-width: 575px) {
+    #container {
+      flex-direction: column;
+    }
+  }
+  

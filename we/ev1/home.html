@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            font-size: 30px;
+        }
+        #container{
+            display: flex;
+            flex-direction: column;
+            border: 1 px solid black;
+        }
+        #container>div{
+            border: 2px solid red;
+            width: 75%;
+            padding: 2%;
+            background-color: blue;
+            color: white;
+        }
+        #container>div>p{
+            font-size: 100px;
+        }
+    </style>
+</head>
+<body>
+   
+    <a href="search.html"> <h2>popular apple</h2></a>
+    <div id="container"></div>
+</body>
+</html>
+
+<script>
+    let parent=document.getElementById("container");
+
+    async function newspop(news_name){
+        let res=await fetch(``);
+        let data=await res.json();
+        let apple=data.title;
+        console.log(apple)
+        console.log(data)
+        appendnews(data)
+    }
+
+    function appendnews(data){
+        data.articles.forEach(function(apple){
+            let div=document.createElement("div")
+            let title=document.createElement("h2")
+            title=apple.title;
+            let author=document.createElement("p")
+            author=apple.author;
+            //console.log(title)
+            console.log(author)
+            div.append(title,author);
+            parent.append(div)
+        });
+        //apple()
+    }
+       
+    newspop()
+ 
+</script>

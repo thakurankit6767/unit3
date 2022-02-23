@@ -1,0 +1,20 @@
+form{
+    width: 300px;
+    height: 300px;
+}
+input{
+    width: 290px;
+    height: 30px;
+    margin-top: 5px;
+}
+div{
+    margin-top: 30px;
+    width: fit-content;
+    margin: auto;
+    background-color: red;
+}
+
+h1{
+    color: white;
+    text-align: center;
+}

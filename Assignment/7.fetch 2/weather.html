@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #data {
+        border: 1px solid red;
+        width: 50%;
+      }
+      #container {
+        display: flex;
+      }
+      img {
+        width: 30px;
+        height: 30px;
+      }
+      #data > div {
+        display: flex;
+        /* background-color: red; */
+      }
+
+      #mapdata {
+        /* background-color: red; */
+        width: 50%;
+        height: 500px;
+      }
+    </style>
+  </head>
+  <body>
+    City:<input type="text" id="city" />
+    <button onclick="getWeather()">Search</button>
+    <div id="container">
+      <div id="data"></div>
+      <div id="mapdata"></div>
+      <div id="gmap"></div>
+    </div>
+  </body>
+</html>
+<script>
+  let data_div = document.getElementById("data");
+
+  async function getWeather() {
+    try {
+      let city = document.getElementById("city").value;
+      let response = await fetch(
+        `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=49988ce2d6ee669aa10d49a1f9e77e78&units=metric`
+      );
+      let data = await response.json();
+
+      showWeather(data);
+
+      console.log("data:", data);
+      mapcall()
+    } catch (err) {
+      console.log("err:", err);
+    }
+  }
+
+  function showWeather(weather) {
+
+    data_div.textContent=" ";
+    let temp = document.createElement("p");
+    temp.innerText = `Temp-${weather.main.temp}°`;
+
+    let pressure = document.createElement("p");
+    pressure.innerText = `Pressure-${weather.main.pressure}`;
+
+    let humidity = document.createElement("p");
+    humidity.innerText = `Humadity-${weather.main.humidity}`;
+
+    let wind = document.createElement("p");
+    wind.innerText = `Wind-${weather.wind.speed}`;
+
+    let clouds = document.createElement("p");
+    clouds.innerText = `Clouds-${weather.clouds.all}`;
+
+    let div1 = document.createElement("div");
+    let img = document.createElement("img");
+    img.src =
+      "https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/cb04c557083789.59c88544b89a0.jpg";
+    let sunrise = document.createElement("p");
+    sunrise.innerText = `Sunrise-${weather.sys.sunrise}`;
+    div1.append(img, sunrise);
+
+    let div2 = document.createElement("div");
+    let img1 = document.createElement("img");
+    img1.src =
+      "data:image/jpeg;base64,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";
+    let sunset = document.createElement("p");
+    sunset.innerText = `Sunrise-${weather.sys.sunset}`;
+    div2.append(img1, sunset);
+
+    data_div.append(temp, pressure, humidity, wind, clouds, div1, div2);
+  }
+
+
+  function mapcall(){
+    let maap=document.getElementById("mapdata")
+   let insidemap=document.getElementById("gmap")
+    insidemap.innerHTML=`<div class="mapouter"><div class="gmap_canvas"><iframe width="600" height="500" id="gmap_canvas" src="https://maps.google.com/maps?q=${city}&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://123movies-to.org"></a><br></div></div>`
+    maap.append(insidemap)
+  }
+ mapcall()
+</script>

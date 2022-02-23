@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #box1 {
+        width: 80px;
+        height: 80px;
+        border: 1px solid red;
+        margin-top: 20px;
+        font-size: 50px;
+       }
+    
+    </style>
+  </head>
+  <body>
+    <button id="throw" onclick="info()">throw dice</button>
+    <div id="box1">
+      <div id="box1"></div>
+    </div>
+  </body>
+</html>
+
+<script>
+  var box1 = "";
+  function info() {
+    var asdf = Math.floor(Math.random() * 6) + 1;
+    if (asdf == 1) {
+      document.getElementById("box1").style.backgroundColor = "red";
+    } else if (asdf == 6) {
+      document.getElementById("box1").style.backgroundColor = "green";
+    } else {
+      document.getElementById("box1").style.backgroundColor = "white";
+    }
+
+    document.querySelector("div").textContent = asdf;
+    
+  }
+</script>

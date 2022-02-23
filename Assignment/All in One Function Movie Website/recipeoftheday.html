@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Today special</title>
+  </head>
+
+  <link rel="stylesheet" href="style.css">
+  
+  <body>
+
+    <div id="header"></div>
+
+    
+
+    <h1 id="today-spcl">Recipe Of The Day</h1>
+
+    <div id="contain"></div>
+
+    
+
+    
+    
+  </body>
+
+</html>
+
+
+
+<script type="module">
+
+  import navbar from './navbar.js'; //we can change the name of the navbar
+  // console.log('navbar:', navbar)
+
+  let navbar_div = document.getElementById("header");
+    navbar_div.innerHTML = navbar();
+
+  //*************************************************************
+
+
+  import {getData, random_food} from './scripts/showData.js'
+
+//   let food_name = document.getElementById("food_name").value;
+
+  let response = getData(`https://www.themealdb.com/api/json/v1/1/random.php`) // function calling
+
+  .then((res) => {
+    console.log('res:', res)
+    console.log('res-meals:', res.meals)
+
+    let search_result = document.getElementById("contain")
+
+    random_food(res.meals, search_result)  // function calling and pass the value
+
+    
+  })
+  .catch((err) => {
+
+    console.log('err:', err)
+
+  })
+
+
+</script>

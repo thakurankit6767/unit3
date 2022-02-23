@@ -1,0 +1,20 @@
+{
+
+
+    "products":[{
+
+
+        "id":1,
+        "product":"kitkat"
+    }
+
+
+    ],
+
+    "users": [
+        {
+            "id": 1,
+            "name": "pablo"
+        }
+    ]
+}

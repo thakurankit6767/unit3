@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Search Website</title>
+    <!-- font awesome icons cdn -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- custom css -->
+    <link rel = "stylesheet" href = "movie.css">
+</head>
+<body>
+    <div class="startheader">
+        <div class="navbar">
+          <div class="leftdiv">
+            <div class="ubuyimg">
+              <a href=""
+                ><img
+                 id="imbdimage"
+                  src="https://www.logosurfer.com/wp-content/uploads/2018/03/imdb-logo_1.png"
+                  alt="imbd"
+              /></a>
+            </div>
+            <div id="hightolow">
+             
+              <!-- <select name="" id="priceSort" onchange="handlePriceSort()">
+                <option value="">-----</option>
+                <option value="low">Low to High</option>
+                <option value="high">High to Low</option>
+              </select> -->
+              <button id="high" onclick="abcd()">High To Low</button>
+              <button id="low" onclick="efgh()">Low To High </button>
+              </div>
+          </div>
+          <div class="mid">
+            <div
+              id="bold"
+              style="color: #c6c8ca; border-right: 1px solid #c6c8ca"
+            >
+              All
+              <i class="fas fa-angle-down"></i>
+            </div>
+            <span>
+              <input
+                style="
+                  width: 350px;
+                  height: 13px;
+                  background-color: transparent;
+                  border: none;
+                  outline: none;
+                "
+                type="text"
+                placeholder="Search movies "
+                id = "movie-search-box" onkeyup="findMovies()" onclick = "findMovies()"
+                class = "form-control"
+              />
+            </span>
+             <button
+              style="
+                background-color: #ffffff;
+                border-radius: 50%;
+                padding: 10px;
+                border: none;
+                margin-right: 13px;
+              "
+            >
+              <i class="fas fa-search"></i>
+            </button>
+          </div>
+          
+          
+            <div class="rightdiv">
+             <div id="accountoptions">
+              <div class="dropdown">
+                
+                  <button id="signin"><a href="movie.html"
+                      >
+                     Home
+                    </a></button>
+                      <button id="signin"><a href="signin.html"
+                      >
+                      Sign In
+                    </a></button>
+                  <button id="signin"><a href="signup.html"
+                  >
+                  Sign Up</a>
+              </button> 
+              <button id="signin"><a href="toptrending.html"
+                >
+               Top Trending
+              </a></button>   
+              </div>
+            </div>
+        </div>
+        </div>
+      </div>
+         </div>
+        </div>
+    
+    
+    
+        <div class = "wrapper">
+      
+        <div class = "search-container">
+            <div class = "search-element">
+                <!-- <h3>Search Movie:</h3> -->
+                <!-- <input type = "text" class = "form-control" placeholder="Search Movie Title ..." id = "movie-search-box" onkeyup="findMovies()" onclick = "findMovies()"> -->
+
+                <div class = "search-list" id = "search-list">
+                   
+                </div>
+            </div>
+        </div>
+        <!-- end of search container -->
+
+        <!-- result container -->
+        <div class = "container">
+            <div class = "result-container">
+                <div class = "result-grid" id = "result-grid">
+                  
+                </div>
+            </div>
+        </div>
+        <!-- end of result container -->
+    </div>
+
+
+    <!-- movie app js -->
+    <script src = "movie.js"></script>
+     <script src="index.js"></script>
+</body>
+</html>

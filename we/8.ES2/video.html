@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      div {
+        border: solid 1px black;
+      }
+      #navbar {
+        height: 100px;
+      }
+      #main {
+        display: flex;
+        height: 600px;
+        /* gap: 20px; */
+      }
+      #video_details {
+        flex: 3;
+      }
+      #recommendation {
+        flex: 2;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="navbar">navbar</div>
+    <div id="main">
+      <div id="video_details">Video</div>
+      <div id="recommendation">Recommendation</div>
+    </div>
+  </body>
+</html>
+<script>
+  let {videoId} = JSON.parse(localStorage.getItem('clicked_video'));
+  let video_div = document.getElementById("video_details");
+  let iframe = document.createElement("iframe");
+  iframe.src = `https://www.youtube.com/embed/${videoId}`;
+  iframe.width = "100%";
+  iframe.height = "100%";
+  iframe.setAttribute('allowfullscreen', "true");
+  video_div.append(iframe);
+</script>

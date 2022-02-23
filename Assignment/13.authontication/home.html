@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Search the movie</title>
+  </head>
+  <style>
+    body {
+      background-color: rgb(255, 255, 255);
+    }
+    #navbar {
+      width: 100%;
+      height: 50px;
+      border: 1px solid red;
+      display: flex;
+      justify-content: space-between;
+      background-color: red;
+      color: white;
+      align-content: center;
+    }
+
+    #results {
+      width: 400px;
+      min-height: 0px;
+      max-height: 200px;
+      background-color: white;
+      overflow: auto;
+      position: absolute;
+      display: none;
+    }
+    #result {
+      width: fit-content;
+      /* background-color: blueviolet; */
+      margin: auto;
+      /* border: outset green; */
+      border-width: 10px;
+      margin-top: 20px;
+      display: none;
+    }
+    #recommend {
+      position: absolute;
+      top: 20px;
+      right: 0px;
+      font-size: 16px;
+      font-weight: bold;
+    }
+    #results > div {
+      background-color: red;
+      color: white;
+    }
+    #results > div > img {
+      width: 100px;
+      height: 50px;
+    }
+    #results > div > * {
+      display: inline-block;
+    }
+
+    #result > div {
+      display: inline-block;
+      vertical-align: top;
+      height: 250px;
+      /* border: 5px solid red; */
+    }
+    #grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      grid-gap: 20px;
+      margin-top: 10px;
+    }
+
+    #user {
+      margin-top: 5px;
+      width: 70px;
+      height: 40px;
+    }
+    #moviename {
+      padding: 15px;
+      width: 450px;
+    }
+    h1 {
+      margin-top: 5px;
+      margin-left: 15px;
+    }
+    #grid > h2,
+    h3,
+    p {
+      color: rgb(0, 0, 0);
+      margin-left: 15px;
+    }
+  </style>
+
+  <body>
+    <div id="navbar">
+      <h1>Movies</h1>
+
+      <div id="search">
+        <input
+          type="text"
+          oninput="debounce(search,1000)"
+          id="moviename"
+          placeholder="Search Movie"
+        />
+        <div id="results"></div>
+      </div>
+      <button id="user" onclick="login()">Login</button>
+    </div>
+
+    <div id="result"></div>
+
+    <div id="grid"></div>
+  </body>
+</html>
+
+<script>
+  let result = document.getElementById("result");
+  let results = document.getElementById("results");
+  let grid = document.getElementById("grid");
+  var timerId;
+
+  function search() {
+    let moviename = document.getElementById("moviename").value;
+    fetch(
+      `https://api.themoviedb.org/3/search/movie?api_key=82474a4254254648630fcc97832b5cec&query=${moviename}`
+    )
+      .then(function (res) {
+        return res.json();
+      })
+      .then(function (res) {
+        console.log(res);
+        console.log(res.results);
+        console.log(moviename.length);
+        if (moviename.length > 2) {
+          results.style.position = "absolute";
+          results.style.display = "block";
+          showresults(res.results);
+        } else {
+          console.log("sucees");
+          results.style.display = "none";
+        }
+      })
+      .catch(function (err) {
+        console.log(err);
+      });
+
+    function showerror() {
+      let img = document.createElement("img");
+      img.src =
+        "https://cdn.dribbble.com/users/2382015/screenshots/6065978/media/1273880a5b9cc8008301089835f37939.gif";
+      result.append(img);
+    }
+  }
+
+  function showmovie(movie) {
+    result.style.display = "block";
+    result.innerHTML = null;
+    let img = document.createElement("img");
+    img.src = "https://image.tmdb.org/t/p/w500" + movie.backdrop_path;
+    img.style.width = "300px";
+    img.style.height = "300px";
+    let div = document.createElement("div");
+    let title = document.createElement("h1");
+    title.textContent = movie.original_title;
+    let R_date = document.createElement("p");
+    R_date.textContent = `Release Date:- ${movie.release_date}`;
+    let imdb = document.createElement("h2");
+    imdb.textContent = `Popularity:- ${movie.popularity}`;
+    let overview = document.createElement("p");
+    overview.style.width = "290px";
+    overview.textContent = `Overview:- ${movie.overview}`;
+    div.append(title, R_date, imdb, overview);
+    result.append(img, div);
+  }
+
+  function showresults(movie) {
+    results.innerHTML = null;
+    movie.forEach(function (data) {
+      let div = document.createElement("div");
+      let img = document.createElement("img");
+      img.src = "https://image.tmdb.org/t/p/w500" + data.backdrop_path;
+      let title = document.createElement("p");
+      title.style.color = "white";
+      title.textContent = data.original_title;
+      div.onclick = function () {
+        showmovie(data);
+      };
+      div.append(img, title);
+      results.append(div);
+    });
+  }
+  
+  
+  async function moviesDataAPI() {
+    let res = await fetch(
+      "https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=82474a4254254648630fcc97832b5cec"
+    );
+    let Data = await res.json();
+    console.log(Data.results);
+    showpopular(Data.results);
+  }
+
+  //    movieslist
+
+  function showpopular(data) {
+    data.forEach((movie) => {
+      let img = document.createElement("img");
+      img.src = "https://image.tmdb.org/t/p/w500" + movie.backdrop_path;
+      img.style.width = "100%";
+      img.style.height = "300px";
+      let div = document.createElement("div");
+      let title = document.createElement("h2");
+      title.textContent = movie.original_title;
+      let R_date = document.createElement("p");
+      R_date.textContent = `Release Date:- ${movie.release_date}`;
+      let imdb = document.createElement("h3");
+      imdb.textContent = `Popularity:- ${movie.popularity}`;
+      let overview = document.createElement("p");
+      overview.textContent = `Actor:- ${movie.overview}`;
+      div.style.backgroundColor = "yellow";
+      div.onclick = function () {
+        showmovie(movie);
+      };
+      div.append(img, title, R_date, imdb, overview);
+      grid.append(div);
+    });
+  }
+
+  function debounce(func, delay) {
+    // lets talk about a function
+    // func = search
+    if (timerId) {
+      clearTimeout(timerId);
+    }
+    timerId = setTimeout(() => {
+      func();
+    }, delay);
+  }
+  moviesDataAPI();
+
+  var logintest = 0;
+  function logincheck() {
+    if (localStorage.getItem("movieuser") === null) {
+      localStorage.setItem("movieuser", JSON.stringify([]));
+    }
+
+    let user_details = JSON.parse(localStorage.getItem("movieuser"));
+    console.log(user_details);
+    if (user_details.username != undefined) {
+      let user = document.getElementById("user");
+      user.style.textAlign = "center";
+      user.style.width = "100px";
+      user.style.display = "inline-block";
+      user.style.borderRadius = "0px";
+      user.innerHTML = `Welcome ${user_details.name} Click to logout`;
+      logintest = 1;
+    }
+  }
+
+  function login() {
+    if (logintest == 0) {
+      window.location.href = "login.html";
+    } else {
+      if (confirm("Are you sure to log out?") == true) {
+        localStorage.setItem("movieuser", JSON.stringify([]));
+        logintest = 0;
+        window.location.reload();
+      }
+    }
+  }
+  logincheck();
+</script>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #container {
+        height: 500px;
+        width: 800px;
+        border: 1px solid red;
+        margin-top: 30px;
+        font-size: 25px;
+    
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Objects’, ‘Arrays’, ‘Functions’, ‘Strings’, ‘Numbers’, ‘null’, ‘undefined’ in index.html. -->
+    <button id="object" onclick="obj()">Object</button>
+    <button id="array" onclick="array()">Array</button>
+    <button id="function" onclick="fun()">function</button>
+    <button id="string" onclick="str()">string</button>
+    <button id="number" onclick="num()">number</button>
+    <button id="null" onclick="nul()">null</button>
+    <button id="undefined" onclick="und()">undefined</button>
+    <div id="container">
+      <ul id="mylist"></ul>
+    </div>
+  </body>
+</html>
+
+<script>
+  function obj() {
+    // var node = document.createElement("LI");
+    // var textnode = document.textn=" asdfgh"
+    //   " 1.In JavaScript, an object is a standalone entity, with properties and type. Compare it with a cup, for example. A cup is an object, with properties. A cup has a color, a design, weight, a material it is made of, etc. The same way, JavaScript objects can have properties, which define their characteristics.2.Like all JavaScript variables, both the object name (which could be a normal variable) and property name are case sensitive. You can define a property by assigning it a value. For example, let's create an objectnamed myCar and give it properties named make, model, and year as follows:3.A mutable object is an object whose state can be modified after it is created. Immutables are the objects whose state cannot bechanged once the object is created. Strings and Numbers are Immutable.");
+    // node.appendChild(textnode);
+    // document.getElementById("myList").appendChild(node);
+    document.querySelector("#mylist").textContent =
+      " 1.In JavaScript, an object is a standalone entity, with properties and type. Compare it with a cup, for example. A cup is an object, with properties. A cup has a color, a design, weight, a material it is made of, etc. The same way, JavaScript objects can have properties, which define their characteristics.2.Like all JavaScript variables, both the object name (which could be a normal variable) and property name are case sensitive. You can define a property by assigning it a value. For example, let's create an objectnamed myCar and give it properties named make, model, and year as follows:3.A mutable object is an object whose state can be modified after it is created. Immutables are the objects whose state cannot bechanged once the object is created. Strings and Numbers are Immutable.";
+  }
+
+  function array() {
+    document.querySelector("#mylist").textContent =
+      "1.An array is a collection of items stored at contiguous memory locations. The idea is to store multiple items of the same type together.2.An array is a data structure, which can store a fixed-size collection of elements of the same data type. An array is used to store a collection of data, but it is often more useful to think of an array as a collection of variables of the same type. ... All arrays consist of contiguous memory locations.3.An immutable array is a unique copy of the original that, when manipulated, does not affect the original";
+  }
+
+  function fun() {
+    document.querySelector("#mylist").textContent =
+      " 1.A function in JavaScript is similar to a procedure—a set of statements that performs a task or calculates a value, but for a procedure to qualify as a function,it should take some input and return an output where there is some obvious relationship between the input and the output.2.The name of the function.A list of parameters to the function, enclosed in parentheses and separated by commas.The JavaScript statements that define the function, enclosed in curly brackets, {...}.3.Primitive parameters (such as a number) are passed to functions by value; the value is passed to the function, but if the function changes the value of the parameter, this change is not reflected globally or in the calling function.";
+  }
+  function str() {
+    document.querySelector("#mylist").textContent =
+      "1.A JavaScript string stores a series of characters like John Doe. A string can be any text inside double or single quotes: let carName1 Volvo XC60; let carName2 = 'Volvo XC60'; String indexes are zero-based: The first character is in position 0, the second in 1, and so o2.Strings are useful for holding data that can be represented in text form. Some of the most-used operations on strings are to check their length, to build and concatenate them using the + and += string operators, checking for the existence or location of substrings with the indexOf() method, or extracting substrings with the substring() method3.String is an example of an immutable type. A String object always represents the same string. StringBuilder is an example of a mutable type. ...By contrast, StringBuilder objects are mutable.";
+  }
+  function num() {
+    document.querySelector("#mylist").textContent =
+      "1.Number is a primitive wrapper object used to represent and manipulate numbers like 37 or -9.25 . The Number constructor contains constants and methods for working with numbers. Values of other types can be converted to numbers using the Number() function.2.A number literal like 37 in JavaScript code is a floating-point value, not an integer. There is no separate integer type in common everyday use. (JavaScript now has a BigInt type, but it was not designed to replace Number for everyday uses. 37 is still a Number, not a BigInt.) ";
+  }
+
+  function nul() {
+    document.querySelector("#mylist").textContent =
+      "1.'Null' is a keyword in JavaScript that signifies 'no value' or nonexistence of any value. If you wish to shred a variable off its assigned value, you can simply assign 'null' to it.Besides this, like any other object, it is never implicitly assigned to a variable by JavaScript2.The JavaScript specification says about null : null is a primitive value that represents the intentional absence of any object value. If you see null (either assigned to a variable or returned by a function), then at that place should have been an object, but for some reason, an object wasn't created.";
+  }
+
+  function und() {
+    document.querySelector("#mylist").textContent =
+      " 1.undefined is a property of the global object. That is, it is a variable in global scope. ... A variable that has not been assigned a value is of type undefined . A method or statement also returns undefined if the variable that is being evaluated does not have an assigned value.2.A variable that has not been assigned a value is of type undefined. A method or statement also returns undefined if the variable that is being evaluated does not have an assigned value. A function returns undefined if a value was not returned.";
+  }
+  // var a=10;
+  //    function scope(){
+  //        var b=20;
+  //    }
+  //    scope()
+  //    console.log(a,b)
+
+  // {
+  //     let c=20;
+  // }
+
+  // var x=10;
+  // function test(){
+  //     x=20;
+  // }
+  // test()
+
+  // var person1={
+  //     name:'jony kumar'
+
+  // }
+  // var person2={ name:'happy singh'}
+  // function Entrepreneur(){
+  //     console.log(' i am entrepreneur')
+  // }
+  // Entrepreneur.call(person1)
+  // Entrepreneur.call(person2)
+
+  // var person1={
+  //     name:'jony kumar'
+
+  // }
+  // var person2={ name:'happy singh'}
+  // function Entrepreneur(){
+  //     console.log(this.name)
+  // }
+  // Entrepreneur.call(person1)
+  // Entrepreneur.call(person2)
+
+  // function Entrepreneur(n,a,u){
+  //     this.name=n
+  //     this.price=a
+  //     this.img=u
+  // }
+  // var person1=Entrepreneur('elon','musk')
+  // console.log('person1:',person1)
+
+  // var person={
+  //     name:'rahul',
+  //     myName:function(){
+  //         console.log(this)
+  //     }
+  // }
+</script>

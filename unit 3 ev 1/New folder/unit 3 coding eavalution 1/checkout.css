@@ -1,0 +1,16 @@
+#name{
+    margin-top: 20px;
+    margin-left: 30px;
+    width: 400px;
+    height: 20px;
+
+}
+#submit{
+margin-left: 30px;
+margin-top: 20px;
+background-color: red;
+border: none;
+color: white;
+height: 20px;
+width: 60px;
+}

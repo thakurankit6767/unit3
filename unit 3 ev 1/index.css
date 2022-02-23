@@ -1,0 +1,28 @@
+
+#navbar {
+    height: 80px;
+    width: 100%;
+    /* border: 1px solid red; */
+    background-color: teal;
+  }
+  #rightdiv {
+    width: 50%;
+    height: 80px;
+    /* border: 1px solid red; */
+   margin-left: 50%;
+   display: flex;
+  }
+  #menu{
+      width: 25%;
+      height: 30px;
+      justify-content: space-between;
+      /* border: 1px solid red; */
+      margin-left: 30px;
+    text-align: center;
+      margin-top: 20px;
+      font-size: larger;
+      border-radius: 10px;
+      background-color: white;
+      padding-top: 10px;
+     
+  }

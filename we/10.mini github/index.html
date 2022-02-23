@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./styles/index.css" />
+  </head>
+  <body>
+    <div id="container"></div>
+    <div id="main">
+      <button id="repo-btn">Get User Repo</button>
+    </div>
+  </body>
+</html>
+<script type="module">
+  import navbar from "./components/navbar.js";
+  import getUser from "./scripts/getUser.js";
+
+  let container = document.getElementById("container");
+  var response;
+  container.innerHTML = navbar();
+
+  let input = document.getElementById("search-input");
+  input.addEventListener("keypress", searchUser);
+  let btn = document.getElementById("repo-btn");
+  btn.addEventListener("click", getUserRepo);
+
+  async function searchUser(event) {
+    console.log("event:", event);
+
+    if (event.key === "Enter") {
+      // console.log("'event:",event)
+
+      let query = input.value;
+
+      response = await getUser(query);
+
+      let { avatar_url } = response;
+      console.log(response);
+      document.getElementById("profile-img").src = avatar_url;
+    }
+  }
+
+  async function getUserRepo() {
+    try {
+      let response = await fetch(response.repos_url);
+      let repo_data = await res.json();
+      console.log(repo_data);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+</script>

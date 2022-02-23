@@ -1,0 +1,285 @@
+
+  .mid {
+    width: 750px;
+    height: 35px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+   
+    border-radius: 7px;
+    background-color: #f7f7f9;
+    margin-top: 18px;
+    background-color: white;
+    border: 2px solid yellow;
+  }
+  .rightdiv {
+    width: 45%;
+    height: 100%;
+    border: 1px solid transparent;
+    background-color:black;
+  }
+  .rightdiv > div {
+    margin-left: 60px;
+    background-color: black;
+    width: 95%;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    justify-content: space-around;
+  }
+  
+  #accountoptions {
+    margin: 0px;
+  }
+  
+  #signin {
+    background-color: white;
+    color: black;
+    width: 100px;
+    height: 40px;
+    text-align: justify;
+    margin-left: 10px;
+    border: none;
+    border-radius: 5px;
+  }
+  
+    #main {
+      margin: 0px;
+    }
+    .dropdown-content a:hover {
+      background-color: #ddd;
+    }
+    .explore a:hover {
+      background-color: #ffb100;
+    }
+    .explore a {
+      background-color: white;
+    }
+    .dropdown-content a {
+      background-color: white;
+    }
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+    .leftdiv {
+      width: 30%;
+      height: 100%;
+      border: 1px solid transparent;
+      display: flex;
+    }
+    .mid {
+      width: 850px;
+      height: 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 5px;
+      border-radius: 50px;
+      background-color: #f7f7f9;
+      margin-top: 18px;
+    }
+    /* .bold img {
+          margin-left: 190px;
+        } */
+    .rightdiv {
+      width: 45%;
+      height: 100%;
+      border: 1px solid transparent;
+    
+      display: flex;
+    }
+    .rightdiv > div {
+      margin-left: 5%;
+      margin-top: 20px;
+      margin-left: 20px;
+    }
+    #mobileapp {
+      width: 150px;
+      height: 45px;
+      border-radius: 10px;
+      background-color: #ffead5;
+      margin-top: 15px;
+      text-align: center;
+      vertical-align: center;
+      font-weight: 600;
+    }
+  i {
+    margin: 0px;
+    padding: 5px;
+  }
+  .dropdown-content > h6 {
+    margin-top: 5px;
+    /* margin-left: -60px; */
+    font-size: 18px;
+    margin: 0px;
+    margin-left: -60px;
+  }
+  .ubuyimg {
+    height: 75%;
+    align-self: center;
+    margin-left: 10px;
+    padding-bottom: 10px;
+  }
+  
+  /* login part */
+  .layout {
+    width: 95%;
+    height: 450px;
+    border: 1px solid transparent;
+    margin: auto;
+    display: flex;
+    margin-top: 11%;
+  }
+  .layout > div {
+    /* margin-top: 10%; */
+    width: 45%;
+    margin-left: 5%;
+    border: 1px solid transparent;
+  }
+  #ubuyemail {
+    width: 80%;
+    height: 40px;
+    margin: auto;
+    padding: 0px 15px;
+    position: relative;
+    top: 0;
+    border: 1px solid #eeeeee;
+    background: #fcfcfc;
+    outline: none;
+    margin-bottom: 3%;
+  }
+  #ubuypassword {
+    width: 80%;
+    height: 40px;
+    margin: auto;
+    padding: 0px 15px;
+    position: relative;
+    top: 0;
+    border: 1px solid #eeeeee;
+    background: hsl(0, 0%, 99%);
+    outline: none;
+    margin-bottom: 3%;
+  }
+  #btn {
+    background: #000000;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 700;
+    color: #ffffff;
+    font-size: 18px;
+    width: 250px;
+    height: 40px;
+    /* border: 1px solid #eeeeee; */
+    border-radius: 7px;
+    cursor: pointer;
+    color: white;
+    border: 2px solid yellow;
+  }
+  .login {
+    margin-top: 3%;
+    margin-left: 20%;
+  }
+  .forgetpass {
+    color: #ffb100;
+    font-size: 16px;
+  }
+  .forgetpass:hover {
+    color: black;
+  }
+  
+  .forget {
+    margin-top: 4%;
+    margin-left: 28%;
+    color: #ffb100;
+  }
+  .logintypes {
+    width: 543px;
+    height: 45px;
+    border: 1px solid transparent;
+    display: flex;
+    margin-top: 5%;
+  }
+  .logintypes > div {
+    width: 245px;
+    height: 100%;
+    border: 1px solid transparent;
+    margin-left: 20px;
+  }
+  .facebook {
+    background-color: #395697;
+  }
+  .facebook a {
+    cursor: pointer;
+    color: white;
+    padding: 10px;
+    text-decoration: none;
+    line-height: 20px;
+  }
+  .fbimage {
+    margin-top: 10px;
+    margin-left: 10px;
+  }
+  .gmail {
+    background-color: #1a73e8;
+    display: flex;
+  }
+  .gmail a {
+    cursor: pointer;
+    color: white;
+  
+    text-decoration: none;
+    border: 1px solid transparent;
+  }
+  .gmailimg {
+    background-color: white;
+    margin: auto;
+  }
+  .svgimg {
+    width: 25%;
+    height: 100%;
+    border: 1px solid transparent;
+    margin-right: 10%;
+  }
+  .content {
+    width: 60%;
+    height: 100%;
+    border: 1px solid transparent;
+    text-align: center;
+    color: white;
+    margin-top: 12px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  .accountcreate {
+    width: 270px;
+    height: 25px;
+    padding: 10px 15px 5px 20px;
+    border: 1px solid transparent;
+    margin-left: 30px;
+    text-align: center;
+    border-radius: 10px;
+    background-color: #000000;
+    color: white;
+    border: 2px solid yellow;
+  }
+  .accountcreate a {
+    color: white;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 17px;
+  }
+  .textlines {
+    width: 500px;
+    height: 151px;
+    border: 1px solid transparent;
+    margin: 48px 0px 0px 0px;
+    margin-left: 10px;
+  }
+  .textlines > div {
+    margin-top: 13px;
+    font-weight: 700;
+  }
+
+
+  

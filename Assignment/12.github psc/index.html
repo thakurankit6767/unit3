@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./styles/index.css" />
+  </head>
+  <body>
+    <div id="container"></div>
+    <div id="main">
+      <button id="repo-btn">Get User Repo</button>
+    <div class="repo"><h1>User Repository</h1></div>
+    </div>
+  </body>
+</html>
+<script type="module">
+  import navbar from "./components/navbar.js";
+  import getUser from "./scripts/getUser.js";
+
+  let container = document.getElementById("container");
+  var response;
+  container.innerHTML = navbar();
+
+  let input = document.getElementById("search-input");
+  input.addEventListener("keypress", searchUser);
+  let btn = document.getElementById("repo-btn");
+  btn.addEventListener("click", getUserRepo);
+
+  async function searchUser(event) {
+    console.log("event:", event);
+
+    if (event.key === "Enter") {
+      // console.log("'event:",event)
+
+      let query = input.value;
+
+      response = await getUser(query);
+
+      let { avatar_url } = response;
+      console.log(response);
+      document.getElementById("profile-img").src = avatar_url;
+      getUserRepo();
+    }
+  }
+
+  // async function getUserRepo() {
+  //   try {
+  //     let response = await fetch(response.repos_url);
+  //     let repo_data = await res.json();
+  //     console.log(repo_data);
+  //   } catch (error) {
+  //     console.log(error);
+     
+  //   }
+    
+  // }
+
+  async function getUserRepo() {
+    let res = await  fetch(response.repos_url)
+
+    let data= await res.json()
+    console.log('data:', data)
+
+
+    var mainRepoDiv =  document.querySelector(".repo");
+
+
+    data.forEach( async function(item)
+    {
+      
+    var lang = (item.language == null)? "" : item.language;
+    var date = (item.updated_at.substring(0,10))
+
+        var card = document.createElement("div");
+        card.setAttribute("class","card");
+        card.innerHTML = 
+        `
+        <div class="repo-subdiv">
+          <p>
+            <span id="repo-name">${item.name}</span>
+            <span id="public">Public</span>
+          </p>
+          <p>
+            <span id="lang">${lang}</span>
+            <span id="date">Updated ${date}</span>
+          </p>
+
+        </div>
+        <div class="star">
+          <button><span class="iconify" data-icon="ant-design:star-outlined"></span> Star</button>
+        </div>
+        `;
+        var hr = document.createElement("hr");
+        mainRepoDiv.append(card, hr);
+    });
+    
+  }
+
+</script>

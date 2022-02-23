@@ -1,0 +1,25 @@
+
+div{
+    background-color: white;
+    width: fit-content;
+    margin: auto;
+    background-color: red;
+}
+td> *{
+    width: 400px;
+    height: 40px;
+    margin: 10px;
+}
+#signupbutton{
+    height: 40px;
+    width: 70px;
+    background-color: white;
+   
+}
+a{
+    text-decoration: none;
+}
+h1{
+    color: white;
+    text-align: center;
+}

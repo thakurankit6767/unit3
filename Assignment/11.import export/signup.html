@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/5a5234c63a.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+ 
+   
+    <div id="header"></div>  
+    
+          
+     <div class="createlayout">
+        <div class="rightdiv1">
+            <img src="https://zomato.runnr.in/assets/services-bike-25b97ce6cfe032fd51c72a44b4f72c282d64875800fe1932c4e6b98f6fb928f4.png" height="100%" width="100%" alt="image">
+        </div>
+        <hr>
+        <div class="leftdiv1">
+            <h2>Welcome to Zomato</h2>
+
+            <div>
+                <input id="username" class="mobile" type="text" placeholder="Full Name*" maxlength="25">
+            </div>
+            <div>
+                 <div id="countrycode">
+                  <span> <input class="mobile" id="mobile" type="text" +91 placeholder="+91  Mobile Number*" maxlength="12"></span></div>
+            </div>
+            <div>
+                <input type="text" class="mobile" id="email" placeholder="Email Address*" maxlength="30">
+            </div>
+            <div>
+                <input id="password" type="text" placeholder="Password*" maxlength="15">
+                <input id="cfmpassword" type="text" placeholder="Confirm Password*" maxlength="15">
+            </div>
+           
+            <div>
+                <input type="checkbox" name="terms" id="terms">
+                <span id="read">  I have read & Agreed </span> <a href="">Terms and Conditions</a>
+            </div>
+            <div class="buttondiv"><button id="signupbutton">Create an Account</button></div>
+           <div class="colorhover" ><span class="already">Already Have an Account?  <a id="colorchange"  href="ubuysigninnew.html">Login</a></span></div>     
+        </div>      
+</div>
+</div>
+<hr>
+
+     
+
+</body>
+</html>
+<script type="module">
+
+
+    import navbar from './navbar.js'; //we can change the name of the navbar
+      // console.log('navbar:', navbar)
+    
+      let navbar_div = document.getElementById("header");
+        navbar_div.innerHTML = navbar();
+    
+    </script>

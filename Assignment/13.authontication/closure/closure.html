@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Search</title>
+</head>
+<style>
+
+    body{
+        background-color: lightblue;
+    }
+    #search{
+        float: right;
+        z-index: 1;
+    }
+    #results{
+        width: 500px;
+        min-height: 0px;
+        max-height: 200px;
+        background-color: white;
+        overflow: auto;
+        position: absolute;
+        display: none;
+        
+    }
+    #result{
+
+        width: fit-content;
+       background-color: blueviolet;
+       margin: auto;
+       border: outset green;
+       border-width: 10px;
+       margin-top: 20px;
+       display: none;
+    }
+    #recommend{
+      position: absolute; 
+      top : 20px;
+      right :0px ;
+      font-size: 16px;
+      font-weight: bold;
+    }
+    #results>div{
+        background-color: cornsilk;
+    }
+    #results>div>img{
+        width: 50px;
+        height:50px;
+    }
+    #results > div> * {
+        display: inline-block;
+    }
+    #result > img, #result > div{
+        display: inline-block;
+        vertical-align: top;
+        height: 440px;
+    }
+    #result > div{
+        display: inline-block;
+        vertical-align: top;
+        height: 440px;
+    }
+    #grid{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-gap: 20px;
+    }
+</style>
+<body>
+Home Hotstar Disney Movies
+<div id="search"><input type="text" oninput="debounce(search,1000)" id="moviename" placeholder="Search Movie" style="width: 500px;"><div id= "results"></div></div>
+<div id="result"></div>
+<h1 style="text-align: center;">Popular movies</h1>
+<div id = "grid"></div>
+</body>
+</html>
+<script>
+//result.style.display = "flex"
+let result = document.getElementById("result")
+let results = document.getElementById("results")
+let grid = document.getElementById("grid")
+var timerId;
+function search(){
+
+let moviename = document.getElementById("moviename").value
+    fetch(`https://api.themoviedb.org/3/search/movie?api_key=82474a4254254648630fcc97832b5cec&query=${moviename}`)
+    .then(function(res){
+        return res.json();
+    })
+    .then(function(res){
+       console.log(res)
+        console.log(res.results)
+        console.log(moviename.length)
+        if(moviename.length > 2){
+            results.style.position = "absolute"
+            results.style.display = "block";
+        showresults(res.results)
+        }else{
+            console.log("sucees")
+            results.style.display = "none";
+        }
+        
+    })
+    .catch(function(err){
+        console.log(err)
+    })
+
+    
+
+    function showerror(){
+        let img = document.createElement("img")
+        img.src = "https://cdn.dribbble.com/users/2382015/screenshots/6065978/media/1273880a5b9cc8008301089835f37939.gif";
+        result.append(img);
+    }
+   
+}
+function showmovie(movie){
+    result.style.display = "block"
+    result.innerHTML = null;
+        let img = document.createElement("img")
+        img.src = "https://image.tmdb.org/t/p/w500" +movie.backdrop_path;
+        img.style.width = "300px"
+        img.style.height = "450px"
+        let div = document.createElement("div")
+        let title = document.createElement("h1")
+        title.textContent = movie.original_title
+        let R_date = document.createElement("p")
+        R_date.textContent = `Release Date:- ${movie.release_date}`
+        let imdb = document.createElement("h2")
+        imdb.textContent = `Popularity:- ${movie.popularity}`
+        let actors = document.createElement("p")
+        actors.style.width="290px"
+        actors.textContent = `Actors:- ${movie.Actors}`
+        div.append(title,R_date,imdb,actors)
+        result.append(img,div)
+    }
+function showresults(movie){
+    results.innerHTML = null;
+    movie.forEach(function(data){
+        let div = document.createElement("div")
+        let img = document.createElement("img")
+        img.src = "https://image.tmdb.org/t/p/w500" +data.backdrop_path;
+        let title = document.createElement("p")
+        title.textContent = data.original_title
+        div.onclick = function(){ 
+            showmovie(data)
+        }
+        div.append(img,title);
+        results.append(div)
+    })
+}
+async function moviesDataAPI(){
+    let res = await fetch("https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=82474a4254254648630fcc97832b5cec");
+    let Data = await res.json();
+    console.log(Data.results);
+    showpopular(Data.results)
+}
+function showpopular(data){
+    data.forEach(movie => {
+        
+ 
+        let img = document.createElement("img")
+        img.src = "https://image.tmdb.org/t/p/w500" +movie.backdrop_path;
+        img.style.width = "100%"
+        img.style.height = "450px"
+        let div = document.createElement("div")
+        let title = document.createElement("h1")
+        title.textContent = movie.original_title
+        let R_date = document.createElement("p")
+        R_date.textContent = `Release Date:- ${movie.release_date}`
+        let imdb = document.createElement("h2")
+        imdb.textContent = `Popularity:- ${movie.popularity}`
+        let actors = document.createElement("p")
+        actors.style.width="290px"
+        actors.textContent = `Actors:- ${movie.Actors}`
+        div.style.backgroundColor = "lightgrey"
+        div.onclick = function(){ 
+            showmovie(movie)
+        }
+        div.append(img,title,R_date,imdb,actors)
+        grid.append(div)
+    });
+    }
+
+function debounce(func,delay){
+  // lets talk about a function
+  // func = search
+ if(timerId){
+   clearTimeout(timerId)
+ }
+timerId= setTimeout(function(){
+    func();
+  },delay)
+}
+moviesDataAPI();
+</script>

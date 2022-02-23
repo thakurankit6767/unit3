@@ -1,0 +1,51 @@
+
+#navbar {
+  height: 80px;
+  width: 100%;
+  /* border: 1px solid red; */
+  background-color: teal;
+}
+#rightdiv {
+  width: 50%;
+  height: 80px;
+  /* border: 1px solid red; */
+ margin-left: 50%;
+ display: flex;
+}
+#menu{
+    width: 25%;
+    height: 30px;
+    justify-content: space-between;
+    /* border: 1px solid red; */
+    margin-left: 30px;
+  text-align: center;
+    margin-top: 20px;
+    font-size: larger;
+    border-radius: 10px;
+    background-color: white;
+    padding-top: 10px;
+   
+}
+
+#products{
+    display: grid;
+    grid-template-columns: repeat(4,25%);
+    margin: 5px;
+    grid-gap: 20px;
+  
+}
+button{
+   height: 30px;
+   width: 100px;
+}
+#cartbutton{
+    height: 40px;
+    width: 200px;
+    margin-top: 20px;
+    font-size: larger;
+    background-color: orange;
+    color: white;
+    border: none;
+    border-radius: 10px;
+}
+

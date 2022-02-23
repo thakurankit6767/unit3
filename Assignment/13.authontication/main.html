@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Search</title>
+</head>
+<style>
+
+    body{
+        background-color: lightblue;
+    }
+    #search{
+        float: right;
+    }
+    #result{
+       width: fit-content; 
+       background-color: blueviolet;
+       display: block;
+       position: relative;
+       margin: auto;
+       border: outset green;
+       border-width: 10px;
+       display: none;
+    }
+    #recommend{
+      position: absolute; 
+      top : 20px;
+      right :0px ;
+      font-size: 16px;
+      font-weight: bold;
+    }
+</style>
+<body>
+Home Hotstar Disney Movies
+<div id="search"><input type="text" id="moviename" placeholder="Search Movie"><button onclick="search()">Search</button></div>
+<div id="result"></div>
+
+</body>
+</html>
+<script>
+
+function search(){
+let moviename = document.getElementById("moviename").value
+let result = document.getElementById("result")
+result.style.display = "block"
+result.innerHTML = null
+    fetch(`https://www.omdbapi.com/?apikey=1aed131&t=${moviename}`)
+    .then(function(res){
+        return res.json();
+    })
+    .then(function(res){
+        console.log(res)
+        console.log(res.Response)
+        if(res.Response == "True"){
+        showmovie(res)
+        }else{
+            showerror()
+        }
+    })
+    .catch(function(err){
+        console.log(err)
+    })
+
+    function showmovie(movie){
+        let img = document.createElement("img")
+        img.src = movie.Poster
+        img.style.width = "300px"
+        img.style.height = "450px"
+        let title = document.createElement("h1")
+        title.textContent = movie.Title
+        let R_date = document.createElement("p")
+        R_date.textContent = `Release Date:- ${movie.Released}`
+        let imdb = document.createElement("h2")
+        imdb.textContent = `IMDB RATING:- ${movie.imdbRating}`
+        let actors = document.createElement("p")
+        actors.style.width="290px"
+        actors.textContent = `Actors:- ${movie.Actors}`
+        result.append(img,title,R_date,imdb,actors)
+
+        if(movie.imdbRating > 8.5){
+            let recommend = document.createElement("div")
+            recommend.style.backgroundColor = "yellow"
+            recommend.innerHTML = `Recommended `+ '&nbsp;'
+            recommend.setAttribute("id","recommend")
+            result.append(recommend)
+        }
+    }
+
+    function showerror(){
+        let img = document.createElement("img")
+        img.src = "https://cdn.dribbble.com/users/2382015/screenshots/6065978/media/1273880a5b9cc8008301089835f37939.gif";
+        result.append(img);
+    }
+   
+}
+
+</script>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+        #container{
+            display: flex;
+            flex-direction: column;
+            border: 1 px solid black;
+        }
+        #container>div{
+            border: 2px solid red;
+            width: 75%;
+            padding: 2%;
+            background-color: blue;
+            color: white;
+            border: 2px solid red;
+           
+        }
+        #container>div>p{
+            font-size: 100px;
+        }
+    </style>
+</head>
+<body>
+   <input type="text" id="query" placeholder="enter keyword">
+   <div id="search_result"></div>
+   <button onclick="newspop()">search</button>
+   <div id="container"></div>
+</body>
+</html>
+
+<script>
+    let parent=document.getElementById("container");
+
+    async function newspop(news_name){
+        parent.innerHTML=null;
+        let query=document.getElementById("query").value
+        let res=await fetch(`https://newsapi.org/v2/everything?q=Apple&from=2022-01-02&sortBy=popularity&apiKey=7da057088ad0488880e18b7a53c7dc3e`);
+        let data=await res.json();
+        let apple=data.title;
+        console.log(apple)
+        console.log(data)
+        appendnews(data)
+    }
+
+    function appendnews(data){
+        data.articles.forEach(function(apple) {
+            let div=document.createElement("div")
+            let title=document.createElement("h2")
+            title=apple.title;
+            let author=document.createElement("p")
+            author=apple.author;
+            //console.log(title)
+            console.log(author)
+            div.append(title,author);
+            parent.append(div)
+        });
+        //apple()
+        let searchResults=document.getElementById("search_result")
+        async function searchlist(){
+            let query=document.getElementById("query").value;
+            let res=await fetch(`https://newsapi.org/v2/everything?q=${query}&from=2022-01-02&sortBy=popularity&apiKey=7da057088ad0488880e18b7a53c7dc3e`)
+            let data=await res.json();
+            appendsearchResults(data)
+        }
+        
+        
+        function appendsearchResults(list){
+            let parent=document.getElementById("search_result");
+            parent.innerHTML=null;
+            list.forEach((apple)=>{
+                let div=document.createElement("div");
+                let title=document.createElement("h2")
+                title=apple.title;
+                //console.log(title)
+                div.append(title)
+                parent.append(div)
+            })
+        
+    }
+   
+    }
+  
+</script>

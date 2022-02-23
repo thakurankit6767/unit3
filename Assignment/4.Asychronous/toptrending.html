@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+     * {
+        font-family:sans-serif;
+    }
+    #container {
+        display: grid;
+        grid-template-columns: repeat(4,25%);
+        
+        grid-gap: 2%;
+       
+    }
+    #container > div > img {
+        width: 100%;
+        border-radius: 10px 10px 0 0;
+    }
+    #container > div {
+        width: 100%;
+        margin-left: 15%;
+        border-radius:10px;
+        box-shadow: 0 0 10px #a0a0a0;
+    }
+    #container > div > p {
+        padding-left: 50%;
+        padding-right: 10%;
+        font-size: 20px;
+        
+    }
+    #container > div > h3 {
+        text-align: center;
+        
+    }
+    .startheader {
+  position: fixed;
+  z-index: #999;
+  left: 0;
+  right: 0;
+  top: 0;
+  background-color: rgb(0, 0, 0);
+}
+
+.navbar {
+  overflow: hidden;
+  background-color: white;
+  width: 100%;
+  height: 70px;
+  border: 1px solid transparent;
+  display: flex;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  background-color: black;
+}
+
+.navbar a {
+  font-size: 15px;
+  color: black;
+  align-items: center;
+  text-decoration: none;
+  /* border: 5px solid red; */
+}
+#imbdimage {
+  width: 90px;
+  height: 50px;
+  margin-top: 8px;
+  /* border: 5px solid red; */
+}
+.leftdiv {
+  width: 27%;
+  height: 100%;
+  border: 1px solid transparent;
+  display: flex;
+  background-color: rgb(0, 0, 0);
+  /* border: 5px solid red; */
+}
+
+.mid {
+  width: 750px;
+  height: 35px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 7px;
+  background-color: #f7f7f9;
+  margin-top: 18px;
+  background-color: white;
+  border: 2px solid yellow;
+  /* border: 5px solid red; */
+}
+.rightdiv {
+  width: 45%;
+  height: 100%;
+  border: 1px solid transparent;
+  background-color: black;
+  /* border: 5px solid red; */
+}
+.rightdiv > div {
+  margin-left: 30px;
+  background-color: black;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  justify-content: space-around;
+  /* border: 5px solid red; */
+}
+#accountoptions {
+  margin: 0px;
+}
+
+#signin {
+  background-color: white;
+  color: black;
+  width: 110px;
+  height: 40px;
+  text-align: center;
+  /* margin-left: 10px; */
+  border: none;
+  border-radius: 5px;
+  /* border: 5px solid red; */
+}
+#hightolow {
+  margin-top: 25px;
+}
+
+
+</style>
+<body>
+    <div class="startheader">
+        <div class="navbar">
+          <div class="leftdiv">
+            <div class="ubuyimg">
+              <a href=""
+                ><img
+                 id="imbdimage"
+                  src="https://www.logosurfer.com/wp-content/uploads/2018/03/imdb-logo_1.png"
+                  alt="imbd"
+              /></a>
+            </div>
+            <div id="hightolow">
+             
+              <!-- <select name="" id="priceSort" onchange="handlePriceSort()">
+                <option value="">-----</option>
+                <option value="low">Low to High</option>
+                <option value="high">High to Low</option>
+              </select> -->
+              <button id="high" onclick="abcd()">High To Low</button>
+              <button id="low" onclick="efgh()">Low To High </button>
+              </div>
+          </div>
+          <div class="mid">
+            <div
+              id="bold"
+              style="color: #c6c8ca; border-right: 1px solid #c6c8ca"
+            >
+              All
+              <i class="fas fa-angle-down"></i>
+            </div>
+            <span>
+              <input
+                style="
+                  width: 350px;
+                  height: 13px;
+                  background-color: transparent;
+                  border: none;
+                  outline: none;
+                "
+                type="text"
+                placeholder="Search "
+              />
+            </span>
+             <button
+              style="
+                background-color: #ffffff;
+                border-radius: 50%;
+                padding: 10px;
+                border: none;
+                margin-right: 13px;
+              "
+            >
+              <i class="fas fa-search"></i>
+            </button>
+          </div>
+          
+          
+            <div class="rightdiv">
+             <div id="accountoptions">
+              <div class="dropdown">
+                
+                  <button id="signin"><a href="p1navbar.html"
+                      >
+                     Home
+                    </a></button>
+                      <button id="signin"><a href="signin.html"
+                      >
+                      Sign In
+                    </a></button>
+                  <button id="signin"><a href="signup.html"
+                  >
+                  Sign Up</a>
+              </button> 
+              <button id="signin"><a href="toptrending.html"
+                >
+               Top Trending
+              </a></button>   
+              </div>
+            </div>
+        </div>
+        </div>
+      </div>
+         </div>
+        </div>
+    <h1 style="text-align:center;">Trending Movies</h1>
+    <div id="container">
+
+    </div>
+</body>
+<script>
+    let parent=document.getElementById("container");
+    async function getData() {
+        let res= await fetch(`https://api.themoviedb.org/3/movie/popular?api_key=9b384d77eac5efad6f058d1fab065086&language=en-US&page=1`);
+        let data= await res.json();
+        let movies=data.results;
+        console.log('movies:', movies);
+        appendData(movies);
+    }
+
+
+    function appendData(data) {
+
+        data.forEach(function(el) {
+            let movieposterid=el.poster_path;
+
+            let div =document.createElement('div');
+
+            let img = document.createElement('img');
+            img.src=`https://image.tmdb.org/t/p/w500${movieposterid}`;
+
+            let title = document.createElement('h3');
+            title.innerText=el.original_title;
+
+            let relesed=document.createElement('p');
+            relesed.innerText=el.release_date;
+
+            let rating = document.createElement('p');
+            rating.innerText=el.vote_average;
+
+
+            div.append(img,title,relesed,rating);
+
+            parent.append(div);
+
+            
+
+
+
+        });
+
+
+
+    }
+
+
+
+
+
+
+    getData();
+</script>
+</html>

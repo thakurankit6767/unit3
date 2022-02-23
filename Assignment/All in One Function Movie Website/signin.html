@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/5a5234c63a.js" crossorigin="anonymous"></script>
+    
+</head>
+<link rel="stylesheet" href="style.css">
+<body>
+  
+  <div id="header"></div>
+            
+     <div class="layout">
+        <div>
+            <h2>Welcome to Zomato</h2>
+            <table>
+                <tr>
+                    <h1> Your Movie account</h1>
+                </tr>
+                <td>
+                    <input type="text" placeholder="Username" id=username>
+                </td>
+                <tr>
+                <td>
+                <input type="password" placeholder="Password" id="password">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button onclick="signin()">SIGN IN
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button id="signupbutton"> <a href="signup.html">SignUp</a>  </button>
+                </td>
+            </tr>
+            </table>
+        <div class="logintypes">
+            <div class="facebook">
+             
+                <a href="https://www.facebook.com"><img class="fbimage" src="https://www.ubuy.co.in/skin/frontend/default/ubuycom-v1/images/facebook-signin.png" alt="fbimage"> Continue with Facebook</a>
+                
+            </div>
+            <div class="gmail"> 
+                <div class="svgimg">
+                <a href="https://www.gmail.com"><img class="gmailimg" src="https://cdn1.iconfinder.com/data/icons/google-s-logo/150/Google_Icons-09-1024.png" height="100%" width="100%" alt=""> </a> </div>
+               <div class="content"> <a href="https://www.gmail.com">Continue with Google</a> </div> 
+            </div>
+        </div>
+    </div>
+    <hr>
+        <div>
+            <h2>New to Zomato?</h2>
+    
+            <div class="accountcreate">
+                <a href="signup.html">Create an Account</a>
+            </div>
+            <div class="textlines">
+                <div> <em class="fas fa-check-circle"></em>
+                    <span>Todays Special</span></div>
+                    <div><em class="fas fa-check-circle"></em>
+                        <span>Latest Receipe</span></div>
+                    <div>    
+              <em class="fas fa-check-circle"></em>
+              <span>Different Types Of Food</span>
+            </div>
+            <div><em class="fas fa-check-circle"></em>
+                <span>Delicious Food</span></div>
+        </div>
+    </div>
+    </div>  
+     <hr>
+
+        
+    
+</body>
+</html>
+
+  <script type="module">
+
+
+import navbar from './navbar.js'; //we can change the name of the navbar
+  // console.log('navbar:', navbar)
+
+  let navbar_div = document.getElementById("header");
+    navbar_div.innerHTML = navbar();
+
+</script>

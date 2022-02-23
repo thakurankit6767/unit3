@@ -1,0 +1,161 @@
+* {
+  padding: 0;
+  margin: 0;
+ 
+
+ }
+ 
+ #logohotstar{
+width: 200px;
+height: 100px; 
+margin-top: 20px;
+}
+body {
+  font-family: "Inter", sans-serif;
+  background-color: rgb(247, 34, 34);
+}
+a {
+  text-decoration: none;
+}
+img {
+  width: 100%;
+  display: block;
+}
+.wrapper {
+ 
+  background-color: rgb(247, 34, 34);
+}
+.wrapper .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+.search-container {
+    background-color: rgb(247, 34, 34);
+  height: 180px;
+
+  display: flex;
+
+  align-items: center;
+  box-pack: center;
+
+  justify-content: center;
+}
+
+.search-element {
+  display: flex;
+  box-align: stretch;
+
+  align-items: stretch;
+  box-pack: center;
+
+  justify-content: center;
+
+  position: relative;
+}
+.search-element h3 {
+  align-self: center;
+  margin-right: 1rem;
+  font-size: 2rem;
+  color: #fff;
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+}
+.search-element .form-control {
+  padding: 1rem 2rem;
+  font-size: 1.4rem;
+  border: none;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+  outline: none;
+  color: rgb(0, 0, 0);
+  width: 350px;
+}
+.search-list {
+  position: absolute;
+  right: 0;
+  top: 100%;
+  max-height: 500px;
+  overflow-y: scroll;
+  z-index: 10;
+}
+.search-list .search-list-item {
+  background-color: blue;
+  padding: 0.5rem;
+  border-bottom: 1px solid yellow;
+  width: calc(350px - 8px);
+  color: #fff;
+  cursor: pointer;
+}
+.search-list .search-list-item:hover {
+  background-color: #1f1f1f;
+}
+.search-list-item {
+  display: flex;
+}
+.search-item-thumbnail img {
+  width: 40px;
+  margin-right: 1rem;
+}
+.search-item-info h3 {
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+/* js related class */
+.hide-search-list {
+  display: none;
+}
+
+/* movie result */
+.result-container {
+  padding: 3rem 0;
+}
+.movie-poster img {
+  max-width: 300px;
+  margin: 0 auto;
+  border: 4px solid rgb(255, 255, 255);
+}
+.movie-info {
+  text-align: left;
+  color: rgb(255, 255, 255);
+  padding-top: 3rem;
+}
+
+/* movie info stylings */
+.movie-title {
+  font-size: 2rem;
+  color: yellow;
+}
+.movie-misc-info {
+  list-style-type: none;
+
+  display: flex;
+
+  padding: 1rem;
+}
+.movie-info .year {
+  font-weight: 500;
+}
+
+.movie-info .plot {
+  max-width: 400px;
+  margin: 15px auto;
+}
+
+.result-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.movie-info {
+  text-align: left;
+  padding-top: 0;
+}
+.movie-info .movie-misc-info {
+  justify-content: flex-start;
+  padding-left: 0;
+}
+.movie-info .plot {
+  margin-left: 0;
+}

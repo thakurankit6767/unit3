@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/5a5234c63a.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+ 
+   
+    <div id="header"></div>  
+    
+          
+     <div class="createlayout">
+        <div class="rightdiv1">
+            <img src="https://zomato.runnr.in/assets/services-bike-25b97ce6cfe032fd51c72a44b4f72c282d64875800fe1932c4e6b98f6fb928f4.png" height="100%" width="100%" alt="image">
+        </div>
+        <hr>
+        <div class="leftdiv1">
+            <h2>Welcome to Zomato</h2>
+
+          
+        <form id="signup-form" onsubmit="Signup(event)">
+        <input type="text" id="name" placeholder="name" />
+        <input type="text" id="email" placeholder="email" />
+        <input type="password" id="password" placeholder="password" />
+        <input type="text" id="username" placeholder="username" />
+        <input type="text" id="mobile" placeholder="mobile" />
+        <input type="text" id="description"  placeholder="description" />
+        <input type="submit" />
+      </form>
+</div>
+</div>
+<hr>
+
+     
+
+</body>
+</html>
+<script type="module">
+
+
+    import navbar from './navbar.js'; //we can change the name of the navbar
+      // console.log('navbar:', navbar)
+    
+      let navbar_div = document.getElementById("header");
+        navbar_div.innerHTML = navbar();
+    
+    </script>

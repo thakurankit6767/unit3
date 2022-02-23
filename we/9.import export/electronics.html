@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./style/index.css" />
+  </head>
+
+  <body>
+    <div id="container"></div>
+    <div id="data"></div>
+  </body>
+</html>
+<script type="module">
+  import navbar from "./components/navbar.js";
+  import { getData, appendData } from "./script/showData.js";
+//   console.log("getdata,appendData:", getData, appendData);
+
+  
+//   console.log("navbar", navbar);
+  let container = document.getElementById("container");
+  let data_div = document.getElementById("data");
+
+  container.innerHTML = navbar();
+
+  let response = getData("https://fakestoreapi.com/products/category/electronics");
+  response
+    .then((res) => {
+      // console.log("res",res);
+      appendData(res, data_div);
+    })
+    .catch((err) => {
+      console.log("err:", err);
+    });
+//   console.log("response:", response);
+</script>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="p1navbar.css" />
+    <!-- <link rel="stylesheet" href="footerforall.css"> -->
+    <script
+      src="https://kit.fontawesome.com/2281802e38.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div class="startheader">
+      <div class="navbar">
+        <div class="leftdiv">
+          <div class="ubuyimg">
+            <a href=""
+              ><img
+               id="imbdimage"
+                src="https://www.logosurfer.com/wp-content/uploads/2018/03/imdb-logo_1.png"
+                alt="imbd"
+            /></a>
+          </div>
+          <div id="hightolow">
+           
+            <!-- <select name="" id="priceSort" onchange="handlePriceSort()">
+              <option value="">-----</option>
+              <option value="low">Low to High</option>
+              <option value="high">High to Low</option>
+            </select> -->
+            <button id="high" onclick="abcd()">High To Low</button>
+            <button id="low" onclick="efgh()">Low To High </button>
+            </div>
+        </div>
+        <div class="mid">
+          <div
+            id="bold"
+            style="color: #c6c8ca; border-right: 1px solid #c6c8ca"
+          >
+            All
+            <i class="fas fa-angle-down"></i>
+          </div>
+          <span>
+            <input
+              style="
+                width: 350px;
+                height: 13px;
+                background-color: transparent;
+                border: none;
+                outline: none;
+              "
+             
+              type="text"
+              placeholder="Search "
+              class = "form-control"
+              onkeyup="findMovies()"
+              onclick = "findMovies()"
+              id = "movie-search-box" 
+            />
+          </span>
+        
+          <button
+            style="
+              background-color: #ffffff;
+              border-radius: 50%;
+              padding: 10px;
+              border: none;
+              margin-right: 13px;
+            "
+          >
+            <i class="fas fa-search"></i>
+          </button>
+        </div>
+        
+        
+          <div class="rightdiv">
+           <div id="accountoptions">
+            <div class="dropdown">
+              
+                <button id="signin"><a href="p1navbar.html"
+                    >
+                   Home
+                  </a></button>
+                    <button id="signin"><a href="signin.html"
+                    >
+                    Sign In
+                  </a></button>
+                <button id="signin"><a href="signup.html"
+                >
+                Sign Up</a>
+            </button> 
+            <button id="signin"><a href="p1navbar.html"
+              >
+             Top Trending
+            </a></button>   
+            </div>
+          </div>
+      </div>
+      </div>
+    </div>
+       </div>
+      </div>
+    
+   
+
+
+
+    <!-- local stoage -->
+
+     <!-- right side part -->
+     <div id="fromdatabase">
+      <!-- right side main container -->
+      <!-- <div id="inlineelement"> -->
+        <div class="smallBox">
+
+          <div class="up">
+              <div class="heading">
+                  <h2><b>Watch Movies</b></h2>
+              </div>
+              <div class="line"></div>
+          </div>
+  
+          <div class = "wrapper">
+            <!-- logo -->
+           
+            </div>
+            <!-- end of logo -->
+            <!-- search container -->
+            <div class = "search-container">
+                <div class = "search-element">
+                    
+                    
+                    <div class = "search-list" id = "search-list">
+                       
+                    </div>
+                </div>
+            </div>
+            <!-- end of search container -->
+    
+            <!-- result container -->
+            <div class = "container">
+                <div class = "result-container">
+                    <div class = "result-grid" id = "result-grid">
+                       
+                    </div>
+                </div>
+            </div>
+            <!-- end of result container -->
+        </div>
+  
+      
+        <!-- <div>prachi yaha pa aapna static data add on karna</div> -->
+      <div id="inputfromdata">
+        <!-- data from local storage will be shown in here -->
+      </div>
+    </div>
+  </div>
+  </body>
+</html>
+<script src="p1navbar.js"></script>

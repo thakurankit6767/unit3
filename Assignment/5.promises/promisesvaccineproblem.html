@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="name">
+    <button  onclick="Register()">Register</button>
+    <p>no of vaccnation left</p>
+    <p id="vacc"></p>
+    <p>no of people in queue</p>
+    <p id="count"></p>
+</body>
+</html>
+
+<script>
+    // let myPromise=new Promise(function(resolve,reject){
+    //  reject("hi am reject")
+    // });
+
+    // myPromise.then(function(response){
+    //     console.log("responce:",responce);
+    // })
+
+    // myPromise.catch(function(error){
+    //     console.log("error:",error);
+    // })
+  
+
+//     let passexam=false;
+//   let myPromise=new Promise(function(resolve,reject){
+//      setTimeout(function(){
+//     if(passexam){
+//         resolve("laptop");
+//     }else{
+//         reject("paragon chappal");
+//     }
+//     },5000);
+//     });
+
+//     myPromise.then(function(response){
+//         console.log("responce:",responce);
+//     })
+
+//     myPromise.catch(function(error){
+//         console.log("error:",error);
+//     })
+  
+let queue=["pablo","babu","shin chan","jethalal"];
+
+let vaccination=queue.length;
+function Register(){
+let name=document.getElementById("name").value;
+queue.push(name);
+let message=`${name} your registarion is succesfull`;
+alert(message)
+
+
+
+let myPromise=new Promise(function(resolve,reject){
+     setTimeout(function(){
+    if(queue[0]===name){
+        resolve("${name}its your turn now");
+    }
+else if(queue.length==0){
+    reject("Vaccination ended")
+}
+
+    },5000);
+    });
+
+    myPromise.then(function(res){
+        console.log("res:",res);
+    });
+
+    myPromise.catch(function(err){
+        console.log("err:",err);
+    });
+
+  let  id=setInterval  (startvaccination,4000)
+    function startvaccination(){
+        queue.shift();
+        vaccination--;
+        queue.unshift();
+        queue.length-vaccination
+        document.querySelector("#vacc").textContent=vaccination;
+        document.querySelector("#count").textContent=queue.length;
+        if(queue.length===0||vaccination==0){
+        clearInterval(id);
+    }
+
+    if(vaccination==0){
+        let message="vaccine out of stock, visit tomorrow";
+alert(message)
+    }
+        console.log(queue)
+    }
+    
+   
+  startvaccination()
+}
+</script>

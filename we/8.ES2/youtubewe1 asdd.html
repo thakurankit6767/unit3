@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <style>
+    #search_results {
+      display: grid;
+      grid-template-columns: repeat(4, 20%);
+      grid-gap: 5%;
+
+      justify-content: space-between;
+      margin-top: 5%;
+    }
+  </style>
+
+  <body>
+    <h1>Youtube</h1>
+
+    <input type="text" id="search" />
+
+    <button onclick="searchVideos()">Search</button>
+
+    <div id="search_results"></div>
+  </body>
+</html>
+
+<script>
+
+
+  let API = "AIzaSyCGRxB2Nnqq1LNd4Y-x08SHjDkG_ui3OfA";
+
+  let search_results_div = document.getElementById("search_results");
+
+  async function searchVideos() {
+    try {
+      let inp = document.getElementById("search").value;
+
+      let res = await fetch(
+        `https://youtube.googleapis.com/youtube/v3/search?q=${inp}&key=${API}&type=video&maxResults=30&part=snippet`
+      );
+
+      let data = await res.json();
+    //   console.log("data:", data);
+
+      let array_of_videos = data.items;
+
+      appendVideos(array_of_videos);
+    } catch (err) {
+      console.log("err:", err);
+    }
+  }
+
+  const appendVideos = (arr) => {
+    search_results_div.innerHTML=null;
+    arr.forEach(({ snippet,id:{videoId}})=>{
+        console.log('snippet:',snippet)
+      
+        let div=document.createElement("div");
+        // search_results_div.append(iframe);
+
+        let title=document.createElement("p")
+        title.innerText=snippet.title;
+
+        let thumbnail=document.createElement("img")
+        thumbnail.src=snippet.thumbnails.medium.url;
+
+        let data_to_send={
+           snippet,
+           videoId
+        }
+
+        div.onclick= ()=>{
+            showVideo(data_to_send)
+        }
+
+        div.append(thumbnail,title)
+        search_results_div.append(div)
+   });
+  };
+
+  function showVideo(data){
+      localStorage.setItem('clicked_video',JSON.stringify(data))
+     c
+
+  }
+</script>

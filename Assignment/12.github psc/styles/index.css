@@ -1,0 +1,54 @@
+body{
+    margin: 0px;
+}
+#navbar{
+
+
+    display: flex;
+    background-color: black;
+    color: white;
+}
+
+#logo img{
+
+    width: 30%;
+    padding: 9px;
+}
+
+#profile-img{
+
+width: 50%;
+border-radius: 50%;
+height: 40px;
+
+}
+
+#list li{
+
+    display: inline;
+    margin-right: 2%;
+}
+#search{
+
+    width: 10%;
+    padding: 12px;
+}
+
+#logo{
+
+    width: 5%;
+    text-align: right;
+}
+#options{
+
+    width: 75%;
+}
+#profile{
+
+    width: 5%;
+}
+a{
+    text-decoration: none;
+    color: white;
+    
+}

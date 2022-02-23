@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    function family(name,age,colour,height){
+        let obj={}
+        obj.name=name;
+        obj.age=age;
+        obj.colour=colour;
+        obj.height=height;
+        return obj
+    }
+
+    let p1=new family("Ashish","70","fair","tall")
+    let p2=new family("Arun","44","semi-fair","medium")
+   
+    console.log(p1)
+    const member={
+        name:"Ashish",
+        colour:"fair",
+        age:70,
+        height:"tall",
+    }
+
+    const newmember=Object.create(member);
+    newmember.name="Arun"
+    newmember.age="44"
+    console.log(newmember)
+    const newmember2=Object.create(newmember)
+    newmember2.name="Amol"
+    console.log(newmember2)
+
+    function addmember(name,age){
+        this.name=name;
+        this.age=age;
+    }
+    addmember.prototype=member;
+    let p3=new addmember("Hitu","16")
+    console.log(p3)
+
+</script>

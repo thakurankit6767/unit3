@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #container {
+        width: 100px;
+        height: 100px;
+      }
+      p {
+        margin-left: 100px;
+      }
+      img {
+        align-items: auto;
+      }
+      #container {
+        margin: auto;
+        width: 600px;
+        height: 400px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <h1>MacDonalds</h1>
+      <p></p>
+      <input type="checkbox" id="name1" /><label for="name1">spicy meal</label
+      ><br /><br />
+      <input type="checkbox" id="name2" /><label for="name2">classic meal</label
+      ><br /><br />
+      <input type="checkbox" id="name3" /><label for="name3"
+        >fish & grill meal</label
+      ><br /><br />
+      <input type="checkbox" id="name4" /><label for="name4"
+        >extra value meal</label
+      ><br /><br />
+      <button id="order" onclick="order()">Order Food</button><br /><br />
+    </div>
+  </body>
+</html>
+
+<!-- Have you seen the McDonald's order notification display? Whenever your order is ready, it is displayed on the screen with your order number.
+Create a button called 'Order Food'. Create a checkbox of multiple food items you can choose from.
+When a user clicks on order food, create a promise that will resolve after 5 seconds.
+Once the promise is resolved, show the image of the food in the center and show the order id on the top right corner. -->
+
+<script>
+  var count = 0;
+
+  function order() {
+    // let queue=[];
+
+    let myPromise = new Promise(function (resolve, reject) {
+      setTimeout(function () {
+        var div1 = document.createElement("div");
+        var image = document.createElement("img");
+        image.setAttribute("src", "https://via.placeholder.com/200x200");
+
+        div1.append(image);
+        
+
+        document.querySelector("#container").append(div1);
+      }, 5000);
+      
+    });
+
+    myPromise.then(function (res) {
+      console.log("res:", res);
+    });
+
+    myPromise.catch(function (err) {
+      console.log("err:", err);
+    });
+
+    count++;
+    document.querySelector("p").innerHTML = "Order Id" + " " + count;
+    
+  }
+</script>

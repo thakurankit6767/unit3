@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" data-auto-replace-svg="nest"></script>
+    <title>Youtube</title>
+
+    <style>
+        #video_details{
+        margin-left: 50px;
+        width:1200px;
+        height:700px;
+        display:inline-block;
+        vertical-align: top;
+        /* border: 5px solid red; */
+     }
+     #navbar{
+        width:99%;
+        height:45px;
+        
+    }
+    .icon{
+        width:20%;
+        height:60px;
+        display: inline-block;
+        vertical-align: top;
+    }
+    .fa-bars{
+        margin-left: 10px;
+        margin-top: 10px;
+    }
+    .srch{
+        height:50px;
+        width:720px;
+        margin-left: 15px;
+        border:1px solid white;
+        display: inline-block;
+        vertical-align: top;
+    }
+    #search{
+        width:570px;
+        height:30px;
+        font-size: 10px;
+    }
+    .fa-search{
+        color: grey;
+    }
+    button{
+        position:absolute;
+        margin-right:60px;
+        height:36px;
+        width:70px;
+    }
+    .fa-microphone{
+        margin-top:10px;
+        margin-left: 50px;
+    }
+    .fa-video{
+        margin-left: 80px;
+    }
+    #img2{
+        height:25px;
+        width:25px;
+        margin-left: 50px;
+    }
+    .fa-bell {
+        margin-left: 80px;
+        display: inline-block; 
+    }
+ 
+    
+    .menu{
+        height:700px;
+        width:70px;
+        display: inline-block;
+        vertical-align: top;
+        margin-top: 50px;
+    }
+   
+    .fa-home{
+        margin-left: 10px;
+    }
+    .fa-compass{
+        margin-left: 10px;
+    }
+    .fa-youtube{
+        margin-left: 10px;
+        color:red;
+    }
+    img{
+       height:200px;
+       width:360px;
+    }
+    #maindiv{
+        display: flex;
+        height: 600px;
+        /* border: 1px solid green; */
+    }
+  
+    #video_details {
+        flex: 12;
+        margin-top: 10px;
+      }
+      #recommendation {
+        flex: 1;
+      }
+    
+    </style>
+</head>
+<body>
+    <div id = "navbar">
+        <div class = "icon">
+            <i class="fas fa-bars fa-2x"></i>
+            <i class="fab fa-youtube fa-2x"></i>
+        </div>
+        <div class = "srch">
+            <input id = "search" type = "text" placeholder="Search">
+            <button onclick="searchVideos()"><i class="fas fa-search fa-2x"></i></button>
+        </div>
+        <i class="fas fa-microphone fa-2x"></i>
+        <i class="fas fa-video fa-2x"></i>
+        <i class="far fa-bell  fa-2x"></i>
+       
+    </div>
+    <div id="maindiv">
+        <div class = "menu">
+            <i class="fas fa-home fa-2x"></i>
+            <h4 style = "margin-left: 10px;">Home</h4>
+            <i class="fas fa-compass fa-2x"></i>
+            <h4 style = "margin-left: 7px;">Explore</h4>
+            <i class="fab fa-youtube fa-2x"></i>
+            <h4>Subscription</h4>
+        </div>
+        <div id="video_details"></div>
+        <div id="recommendation"></div>
+       
+    </div>
+  
+</body>
+</html>
+
+<script>
+    //1.  need to show the video
+    //2. fetch "clicked video " data from localstorage
+
+    let video_data = JSON.parse(localStorage.getItem("clicked_video"));
+    console.log("video_data:", video_data);
+
+    //description -> video_data.snippet.description
+
+    let video_div = document.getElementById("video_details");
+
+    let iframe = document.createElement("iframe");
+
+    iframe.src = `https://www.youtube.com/embed/${video_data.videoId}`;
+
+    iframe.height = "80%";
+    iframe.width = "80%";
+    iframe.setAttribute("allowfullscreen", true);
+
+    video_div.append(iframe);
+  
+
+</script>

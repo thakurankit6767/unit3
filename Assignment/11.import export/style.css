@@ -1,0 +1,483 @@
+#navbar {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 4%;
+  padding-right: 4%;
+  border: solid 1px rgb(255, 255, 255);
+  height: 60px;
+  width: 92%;
+  color: rgb(252, 252, 252);
+  background-color: rgb(223, 0, 0);
+}
+#navbartag {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 4%;
+  padding-right: 4%;
+  /* border: solid 1px rgb(0, 250, 0); */
+  width: 50%;
+}
+
+#zomato {
+  width: 160px;
+  height: 60px;
+}
+#zomatoimagediv {
+  height: 100%;
+  width: 100px;
+  /* border: 1px solid rgb(255, 255, 255); */
+}
+body {
+  /* background-color: red; */
+  color: rgb(0, 0, 0);
+}
+
+.img {
+  width: 90%;
+}
+
+#container {
+  display: grid;
+  grid-template-columns: repeat(4, 25%);
+  grid-gap: 40px;
+  justify-content: center;
+  padding: 5%;
+  width: 1000px;
+  margin: auto;
+  /* border: 1px solid red; */
+  padding-left: 100px;
+  text-align: center;
+  font-size: large;
+}
+/* search page */
+#search_result {
+  width: 400px;
+  margin: auto;
+  /* border: 1px solid red; */
+  box-sizing: border-box;
+  padding: 10px;
+}
+a {
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+}
+
+.search_img {
+  width: 370px;
+  border-radius: 10px;
+}
+
+#input {
+  /* border: 1px solid red; */
+  margin-top: 5%;
+  width: 400px;
+  margin: auto;
+}
+input {
+  margin-bottom: 20px;
+  padding: 10px;
+  height: 25px;
+  width: 400px;
+  margin-right: 10px;
+  margin-top: 40px;
+}
+button {
+  height: 30px;
+}
+
+/* debounicing part */
+
+#contain {
+  /* border: 1px solid red; */
+  width: 700px;
+  margin: auto;
+}
+#contain img {
+  border: 3px solid rgb(255, 255, 0);
+  width: 300px;
+  margin-left: 200px;
+  margin-top: 30px;
+}
+
+#search_result {
+  height: 300px;
+  width: 400px;
+  /* border: 1px solid black; */
+  overflow: scroll;
+  border-top: none;
+  scroll-behavior: smooth;
+}
+
+/* #search_result::-webkit-scrollbar {
+  display: none;
+} */
+/* width */
+#search_result::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Handle */
+#search_result::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+.each-div {
+  /* border: 1px solid red; */
+  margin-top: 5px;
+  display: flex;
+  flex-direction: row;
+}
+.each-div > img {
+  width: 130px;
+  height:110px;
+}
+
+.details-div {
+  display: flex;
+  flex-direction: column;
+  font-size: 20px;
+  font-weight: 100px;
+  margin-left: 10px;
+  text-align: center;
+  text-overflow:  ;
+}
+
+#today-spcl {
+  width: 400px;
+  margin: auto;
+  color: white;
+  background-color: red;
+  margin-top: 50px;
+  text-align: center;
+}
+
+/* sign in html */
+
+.mid {
+  width: 750px;
+  height: 35px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  border-radius: 7px;
+  background-color: #f7f7f9;
+  margin-top: 18px;
+  background-color: white;
+  border: 2px solid rgb(255, 255, 255);
+}
+.rightdiv {
+  width: 45%;
+  height: 100%;
+  border: 1px solid transparent;
+  background-color: black;
+}
+.rightdiv > div {
+  margin-left: 60px;
+  background-color: black;
+  width: 95%;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  justify-content: space-around;
+}
+
+#accountoptions {
+  margin: 0px;
+}
+
+#signin {
+  background-color: rgb(255, 0, 0);
+  color: rgb(243, 0, 0);
+  width: 100px;
+  height: 40px;
+  text-align: justify;
+  margin-left: 10px;
+  border: none;
+  border-radius: 5px;
+}
+
+.leftdiv {
+  width: 30%;
+  height: 100%;
+  border: 1px solid transparent;
+  display: flex;
+}
+.mid {
+  width: 850px;
+  height: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px;
+  border-radius: 50px;
+  background-color: #f7f7f9;
+  margin-top: 18px;
+}
+/* .bold img {
+        margin-left: 190px;
+      } */
+.rightdiv {
+  width: 45%;
+  height: 100%;
+  border: 1px solid transparent;
+
+  display: flex;
+}
+.rightdiv > div {
+  margin-left: 5%;
+  margin-top: 20px;
+  margin-left: 20px;
+}
+#mobileapp {
+  width: 150px;
+  height: 45px;
+  border-radius: 10px;
+  background-color: #ffead5;
+  margin-top: 15px;
+  text-align: center;
+  vertical-align: center;
+  font-weight: 600;
+}
+i {
+  margin: 0px;
+  padding: 5px;
+}
+.dropdown-content > h6 {
+  margin-top: 5px;
+  /* margin-left: -60px; */
+  font-size: 18px;
+  margin: 0px;
+  margin-left: -60px;
+}
+.ubuyimg {
+  height: 75%;
+  align-self: center;
+  margin-left: 10px;
+  padding-bottom: 10px;
+}
+
+/* login part */
+.layout {
+  width: 95%;
+  height: 450px;
+  border: 1px solid transparent;
+  margin: auto;
+  display: flex;
+  margin-top: 11%;
+}
+.layout > div {
+  /* margin-top: 10%; */
+  width: 45%;
+  margin-left: 5%;
+  border: 1px solid transparent;
+}
+#ubuyemail {
+  width: 80%;
+  height: 40px;
+  margin: auto;
+  padding: 0px 15px;
+  position: relative;
+  top: 0;
+  border: 1px solid #eeeeee;
+  background: #fcfcfc;
+  outline: none;
+  margin-bottom: 3%;
+}
+#ubuypassword {
+  width: 80%;
+  height: 40px;
+  margin: auto;
+  padding: 0px 15px;
+  position: relative;
+  top: 0;
+  border: 1px solid #eeeeee;
+  background: hsl(0, 0%, 99%);
+  outline: none;
+  margin-bottom: 3%;
+}
+#btn {
+  background: #d60000;
+  padding-left: 20px;
+  padding-right: 20px;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  color: #ffffff;
+  font-size: 18px;
+  width: 250px;
+  height: 40px;
+  /* border: 1px solid #eeeeee; */
+  border-radius: 7px;
+  cursor: pointer;
+  color: white;
+  border: 2px solid rgb(255, 255, 255);
+}
+.login {
+  margin-top: 3%;
+  margin-left: 20%;
+}
+.forgetpass {
+  color: #f10000;
+  font-size: 16px;
+}
+.forgetpass:hover {
+  color: black;
+}
+
+.forget {
+  margin-top: 4%;
+  margin-left: 28%;
+  color: #ffb100;
+}
+.logintypes {
+  width: 543px;
+  height: 45px;
+  border: 1px solid transparent;
+  display: flex;
+  margin-top: 5%;
+}
+.logintypes > div {
+  width: 245px;
+  height: 100%;
+  border: 1px solid transparent;
+  margin-left: 20px;
+}
+.facebook {
+  background-color: #395697;
+}
+.facebook a {
+  cursor: pointer;
+  color: white;
+  padding: 10px;
+  text-decoration: none;
+  line-height: 20px;
+}
+.fbimage {
+  margin-top: 10px;
+  margin-left: 10px;
+}
+.gmail {
+  background-color: #1a73e8;
+  display: flex;
+}
+.gmail a {
+  cursor: pointer;
+  color: white;
+
+  text-decoration: none;
+  border: 1px solid transparent;
+}
+.gmailimg {
+  background-color: white;
+  margin: auto;
+}
+.svgimg {
+  width: 25%;
+  height: 100%;
+  border: 1px solid transparent;
+  margin-right: 10%;
+}
+.content {
+  width: 60%;
+  height: 100%;
+  border: 1px solid transparent;
+  text-align: center;
+  color: white;
+  margin-top: 12px;
+  cursor: pointer;
+  font-size: 16px;
+}
+.accountcreate {
+  width: 270px;
+  height: 25px;
+  padding: 10px 15px 5px 20px;
+  border: 1px solid transparent;
+  /* margin-left: 10px; */
+  text-align: center;
+  border-radius: 10px;
+  background-color: #ff0000;
+  color: white;
+  border: 2px solid rgb(255, 255, 255);
+}
+.accountcreate a {
+  color: white;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 17px;
+}
+.textlines {
+  width: 500px;
+  height: 151px;
+  border: 1px solid transparent;
+  margin: 48px 0px 0px 0px;
+  margin-left: 10px;
+}
+.textlines > div {
+  margin-top: 13px;
+  font-weight: 700;
+}
+
+/* signup css */
+.createlayout {
+  width: 93%;
+  height: 630px;
+  margin: auto;
+  border: 1px solid transparent;
+  display: flex;
+  margin-top: 8%;
+  margin-bottom: 11%;
+  /* border: 1px solid red; */
+}
+.rightdiv1 {
+  width: 520px;
+  height: 440px;
+  border: 1px solid transparent;
+  /* border: 1px solid red; */
+}
+.leftdiv1 {
+  width: 550px;
+  height: 100%;
+  border: 1px solid transparent;
+  margin-left: 30px;
+}
+
+#username {
+  width: 300px;
+  height: 25px;
+  padding: 6px 20px;
+  outline: none;
+  border: 1px solid #eeeeee;
+  margin-bottom: -40px;
+}
+.mobile {
+  width: 300px;
+  height: 25px;
+  padding: 6px 20px;
+  border: 1px solid #eeeeee;
+  margin-bottom: -40px;
+}
+#password {
+  height: 25px;
+  border: 1px solid #eeeeee;
+  margin-bottom: -40px;
+}
+#cfmpassword {
+  height: 25px;
+  border: 1px solid #eeeeee;
+  margin-bottom: -40px;
+}
+
+h2 {
+  color: #ff0000;
+}
+
+.fas-fa-check-circle {
+  color: red;
+  margin-left: -500px;
+}
+#terms {
+  margin-left: -182px;
+}
+#read {
+  margin-left: -180px;
+}

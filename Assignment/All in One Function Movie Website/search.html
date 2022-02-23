@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>search</title>
+  </head>
+
+  <link rel="stylesheet" href="style.css">
+  
+  <body>
+
+    <div id="header"></div>
+
+    <div id="input">
+      <input type="text" id="food_name" placeholder="Enter the Food Name">
+    </div>
+
+
+    <div id="contain"></div>
+
+    <div id="search_result"></div>
+
+
+    <!-- movies thumbanail image part -->
+    <!-- <header>
+      <form id="form">
+        <input
+          oninput="searching()"
+          type="text"
+          placeholder="search.."
+          id="search"
+          class="search"
+        />
+        <div class="popup">
+          <span class="popuptext" id="myPopup">Movie not found</span>
+        </div>
+      </form>
+     
+    </header> -->
+  
+
+    <main id="main"></main>
+   
+    
+  </body>
+
+</html>
+
+
+</script> 
+
+<script type="module">
+
+  import navbar from './navbar.js'; //we can change the name of the navbar
+  // console.log('navbar:', navbar)
+
+  let navbar_div = document.getElementById("header");
+    navbar_div.innerHTML = navbar();
+
+ 
+  import {debounce} from './scripts/debounce.js'
+  // console.log('debounce:', debounce)
+//  import { showMovies } from './search.js'
+
+  var query = document.getElementById("food_name");
+
+  query.oninput = ()=>{
+    
+    let where_to_append = document.getElementById("search_result")
+
+    let goto_div = document.getElementById("contain")
+    
+
+    debounce(query.value, where_to_append, goto_div)
+    
+    
+
+  };
+
+  
+
+</script>

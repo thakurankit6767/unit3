@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Get latest food</title>
+  </head>
+
+  <link rel="stylesheet" href="style.css">
+  
+  <body>
+
+    <div id="header"></div>
+
+    <div id="container"></div>
+    
+  </body>
+
+</html>
+
+<script type="module">
+
+  import navbar from './navbar.js'; //we can change the name of the navbar
+  // console.log('navbar:', navbar)
+
+  let navbar_div = document.getElementById("header");
+    navbar_div.innerHTML = navbar();
+
+  import {getData, append} from './scripts/showData.js'
+
+  
+
+  let response = getData('https://www.themealdb.com/api/json/v1/1/categories.php') // function calling
+
+  .then((res) => {
+    console.log('res:', res)
+    console.log('res-catagories:', res.categories)
+
+    let container = document.getElementById("container")
+
+    
+
+    append(res.categories, container)  // function calling and pass the value
+
+    
+  })
+  .catch((err) => {
+
+    console.log('err:', err)
+
+  })
+
+</script>
